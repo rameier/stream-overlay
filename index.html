@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stream Overlay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="overlay" id="overlay">
+      <div class="overlay__grid">
+        <section class="window window--facecam" aria-labelledby="facecam-title">
+          <div class="window__titlebar">
+            <div class="window__controls" aria-hidden="true">
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+            </div>
+            <h2 class="window__title" id="facecam-title">Facecam</h2>
+          </div>
+          <div class="window__body">
+            <div class="facecam" data-facecam>
+              <div class="facecam__frame"></div>
+              <p class="facecam__hint">Platziere hier deine Webcam in OBS.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="window window--about" aria-labelledby="about-title">
+          <div class="window__titlebar">
+            <div class="window__controls" aria-hidden="true">
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+            </div>
+            <h2 class="window__title" id="about-title">Über den Streamer</h2>
+          </div>
+          <div class="window__body">
+            <div class="profile">
+              <div class="profile__header">
+                <div class="profile__avatar" data-avatar>
+                  <span data-field="streamer.initial">L</span>
+                </div>
+                <div class="profile__identity">
+                  <span class="profile__status" data-field="streamer.status">
+                    Live aus dem Studio
+                  </span>
+                  <h1 class="profile__name" data-field="streamer.name">livieso</h1>
+                  <p class="profile__tagline" data-field="streamer.tagline">
+                    Creative Dev Streams
+                  </p>
+                </div>
+                <span class="badge badge--live" data-field="streamer.tag">LIVE</span>
+              </div>
+              <ul class="profile__info" data-list="streamer.info">
+                <li class="profile__info-item">
+                  <span class="profile__info-label">Sprache</span>
+                  <span class="profile__info-value">Deutsch &amp; Englisch</span>
+                </li>
+                <li class="profile__info-item">
+                  <span class="profile__info-label">Zeitplan</span>
+                  <span class="profile__info-value">Mo, Mi &amp; Fr • 19:30 CET</span>
+                </li>
+              </ul>
+              <div class="profile__links" data-list="streamer.links">
+                <a class="profile__link" href="https://twitch.tv/livieso" target="_blank" rel="noreferrer">
+                  twitch.tv/livieso
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="window window--stream" aria-labelledby="stream-title">
+          <div class="window__titlebar">
+            <div class="window__controls" aria-hidden="true">
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+            </div>
+            <h2 class="window__title" id="stream-title">Stream Übersicht</h2>
+          </div>
+          <div class="window__body">
+            <div class="stream-now">
+              <span class="chip" data-field="nowPlaying.label">Aktuell</span>
+              <h3 class="stream-now__title" data-field="nowPlaying.title">
+                Building a shiny overlay inside VS Code
+              </h3>
+              <p class="stream-now__meta" data-field="nowPlaying.category">
+                Creative Coding &amp; UI Design
+              </p>
+              <p class="stream-now__meta stream-now__meta--dim" data-field="nowPlaying.startedAt">
+                Seit 45&nbsp;Min live
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="window window--activity" aria-labelledby="activity-title">
+          <div class="window__titlebar">
+            <div class="window__controls" aria-hidden="true">
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+            </div>
+            <h2 class="window__title" id="activity-title">Stream-Aktivität</h2>
+          </div>
+          <div class="window__body">
+            <div class="activity">
+              <div class="activity__section">
+                <h3 class="activity__heading">Neueste Abos</h3>
+                <ul class="list" data-list="latestSubscriptions">
+                  <li class="list__item">
+                    <span class="list__item-name">pixelpilot</span>
+                    <time class="list__item-meta">vor 2&nbsp;Min</time>
+                  </li>
+                </ul>
+              </div>
+              <div class="activity__section">
+                <h3 class="activity__heading">Letzte Unterstützung</h3>
+                <ul class="list list--support" data-list="supporters">
+                  <li class="list__item list__item--support">
+                    <div class="support__content">
+                      <span class="list__item-name">sarah.codes</span>
+                      <span class="support__message">5 € Tip</span>
+                    </div>
+                    <time class="list__item-meta">vor 7&nbsp;Min</time>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="window window--goals" aria-labelledby="goals-title">
+          <div class="window__titlebar">
+            <div class="window__controls" aria-hidden="true">
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+            </div>
+            <h2 class="window__title" id="goals-title">Aktive Ziele</h2>
+          </div>
+          <div class="window__body">
+            <div class="goals" data-list="goals">
+              <div class="goal">
+                <div class="goal__meta">
+                  <span class="goal__label">Follower</span>
+                  <span class="goal__value">74 / 100</span>
+                </div>
+                <div class="goal__bar">
+                  <div class="goal__bar-fill" style="width: 74%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="window window--callout" aria-labelledby="callout-title">
+          <div class="window__titlebar">
+            <div class="window__controls" aria-hidden="true">
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+            </div>
+            <h2 class="window__title" id="callout-title">Nächster Stream</h2>
+          </div>
+          <div class="window__body">
+            <p class="callout__title" data-field="callout.title">Freitag • 19:30 CET</p>
+            <p class="callout__subtitle" data-field="callout.subtitle">
+              Chill Q&amp;A &amp; Live Coding
+            </p>
+            <div class="callout__socials" data-list="socials">
+              <a class="social" href="https://twitch.tv/livieso" target="_blank" rel="noreferrer">
+                twitch.tv/livieso
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="window window--tasks" aria-labelledby="tasks-title">
+          <div class="window__titlebar">
+            <div class="window__controls" aria-hidden="true">
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+              <span class="window__control"></span>
+            </div>
+            <h2 class="window__title" id="tasks-title">Aktuelle Aufgaben</h2>
+          </div>
+          <div class="window__body">
+            <ul class="tasks" data-list="tasks">
+              <li class="task">
+                <span class="task__title">Dashboard API verfeinern</span>
+                <div class="task__meta">
+                  <span class="task__status">In Arbeit</span>
+                  <span class="task__details">livieso • Heute</span>
+                </div>
+              </li>
+              <li class="task">
+                <span class="task__title">Chat Alerts testen</span>
+                <div class="task__meta">
+                  <span class="task__status">Ausstehend</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="overlay.js"></script>
+  </body>
+</html>
