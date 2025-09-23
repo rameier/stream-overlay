@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stream Overlay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="overlay" id="overlay" role="presentation">
+      <div class="overlay__workspace" aria-hidden="true"></div>
+      <aside class="overlay__panels">
+        <section class="panel panel--facecam" aria-labelledby="facecam-title">
+          <header class="panel__header">
+            <div class="panel__controls" aria-hidden="true">
+              <span class="panel__control"></span>
+              <span class="panel__control"></span>
+              <span class="panel__control"></span>
+            </div>
+            <h2 class="panel__title" id="facecam-title">Facecam</h2>
+          </header>
+          <div class="panel__body">
+            <div class="facecam" data-facecam>
+              <div class="facecam__frame"></div>
+              <p class="facecam__hint">Platziere hier deine Webcam in OBS.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel--info" aria-labelledby="info-title">
+          <header class="panel__header">
+            <div class="panel__controls" aria-hidden="true">
+              <span class="panel__control"></span>
+              <span class="panel__control"></span>
+              <span class="panel__control"></span>
+            </div>
+            <h2 class="panel__title" id="info-title">Streamer Infos</h2>
+          </header>
+          <div class="panel__body">
+            <div class="streamer" data-section="streamer">
+              <span class="streamer__status" data-field="streamer.status">
+                Live aus dem Studio
+              </span>
+              <h1 class="streamer__name" data-field="streamer.name">livieso</h1>
+              <p class="streamer__tagline" data-field="streamer.tagline">
+                Creative Dev Streams
+              </p>
+              <ul class="streamer__details" data-list="streamer.details">
+                <li class="detail">
+                  <span class="detail__label">Sprache</span>
+                  <span class="detail__value">Deutsch &amp; Englisch</span>
+                </li>
+                <li class="detail">
+                  <span class="detail__label">Aktuelles Projekt</span>
+                  <span class="detail__value">Overlay Refresh</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel--todos" aria-labelledby="todos-title">
+          <header class="panel__header">
+            <div class="panel__controls" aria-hidden="true">
+              <span class="panel__control"></span>
+              <span class="panel__control"></span>
+              <span class="panel__control"></span>
+            </div>
+            <h2 class="panel__title" id="todos-title">To-Dos</h2>
+          </header>
+          <div class="panel__body">
+            <ul class="todos" data-list="todos">
+              <li class="todo">
+                <span class="todo__title">Dashboard API verfeinern</span>
+                <span class="todo__meta">In Arbeit</span>
+              </li>
+              <li class="todo">
+                <span class="todo__title">Chat Alerts testen</span>
+                <span class="todo__meta">Ausstehend</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </aside>
+    </main>
+    <script src="overlay.js" defer></script>
+  </body>
+</html>
