@@ -6,7 +6,11 @@
   --overlay-border: rgba(92, 124, 250, 0.35); /* fallback */
   --panel-surface: rgba(6, 12, 28, 0.92); /* fallback */
   --panel-border: rgba(145, 167, 255, 0.2); /* fallback */
-  --panel-header-background: linear-gradient(90deg, rgba(92, 124, 250, 0.18), rgba(92, 124, 250, 0.08)); /* fallback */
+  --panel-header-background: linear-gradient(
+    90deg,
+    rgba(92, 124, 250, 0.18),
+    rgba(92, 124, 250, 0.08)
+  ); /* fallback */
   --panel-header-border: rgba(145, 167, 255, 0.14); /* fallback */
   --panel-title-color: #c3c9dd; /* fallback */
   --panel-glow: rgba(92, 124, 250, 0.35); /* fallback */
@@ -185,6 +189,9 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--text-primary);
+  white-space: nowrap;
+  width: 100%;
+  max-width: 100%;
 }
 
 .streamer__tagline {

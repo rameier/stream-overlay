@@ -18,7 +18,7 @@
     "shadowElevated": "0 24px 48px -28px rgba(12, 20, 46, 0.8)"
   },
   "streamer": {
-    "name": "liviesoTEst",
+    "name": "GarstigesEinhorn",
     "status": "assasasas",
     "tagline": "Creative Dev Streams",
     "details": [
@@ -29,6 +29,10 @@
       {
         "label": "Aktuelles Projekt",
         "value": "Overlay Refresh"
+      },
+      {
+        "label": "Test",
+        "value": "Tsest"
       }
     ]
   },
@@ -40,6 +44,10 @@
     {
       "title": "Chat Alerts testen",
       "status": "Ausstehend"
+    },
+    {
+      "title": "Test",
+      "status": "Test"
     }
   ]
 }
