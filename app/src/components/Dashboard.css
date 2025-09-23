@@ -285,6 +285,16 @@
   top: 2rem;
 }
 
+.preview__overlay-wrapper {
+  /* Create overlay-like environment */
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
 /* Tabbed Container Styles */
 .tabbed-container {
   background: rgba(6, 12, 28, 0.7);
@@ -394,30 +404,34 @@
 .preview__panels {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  font-size: 0.75rem;
-  transform: scale(0.6);
-  transform-origin: top center;
-  width: 166.67%; /* Compensate for the scale */
-  margin-left: -33.33%; /* Center the scaled content */
+  gap: 24px; /* Match overlay gap */
+  padding: 32px 32px 32px 24px; /* Match overlay padding */
+  font-size: 16px; /* Match overlay font size */
+  width: 384px; /* Match overlay panels width */
+  margin: 0 auto; /* Center the panels */
+  background: linear-gradient(
+    180deg,
+    rgba(33, 44, 53, 0.85) 0%,
+    rgba(33, 44, 53, 0.92) 60%,
+    rgba(33, 44, 53, 0.98) 100%
+  );
+  backdrop-filter: blur(12px);
+  border-radius: 0; /* Remove any border radius to match overlay */
+  /* Inherit overlay styling context */
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
 }
 
-/* Override panel styles for preview */
+/* Override panel styles for preview to match overlay exactly */
 .preview__panels .panel {
-  flex: none;
-  height: 280px;
+  flex: 1 1 0; /* Match overlay flex behavior */
 }
 
 .preview__panels .panel__body {
-  padding: 16px;
-}
-
-.preview__panels .streamer__name {
-  font-size: 1.8rem;
-}
-
-.preview__panels .panel__title {
-  font-size: 0.9rem;
+  padding: 24px; /* Match overlay padding */
 }
 
 @media (max-width: 768px) {
@@ -439,9 +453,8 @@
   }
 
   .preview__panels {
-    transform: scale(0.8);
-    width: 125%;
-    margin-left: -12.5%;
+    width: 384px;
+    margin: 0 auto;
   }
 
   .color-settings-grid {
@@ -499,9 +512,8 @@
   }
 
   .preview__panels {
-    transform: scale(0.55);
-    width: 181.82%;
-    margin-left: -40.91%;
+    width: 384px;
+    margin: 0 auto;
   }
 
   .color-settings-grid {

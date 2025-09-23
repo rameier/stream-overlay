@@ -18,9 +18,9 @@
     "shadowElevated": "0 24px 48px -28px rgba(31, 33, 36, 0.8)"
   },
   "streamer": {
-    "name": "livieso",
-    "status": "Live aus dem Studio",
-    "tagline": "Creative Dev Streams",
+    "name": "GarstigesEinhorn",
+    "status": "WebDev - eSports - Selfimprove",
+    "tagline": "Bremen eSports",
     "details": [
       {
         "label": "Sprache",
@@ -28,7 +28,7 @@
       },
       {
         "label": "Aktuelles Projekt",
-        "value": "Overlay Refresh"
+        "value": "Vereinswebsite"
       }
     ]
   },
