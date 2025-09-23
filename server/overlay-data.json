@@ -15,12 +15,25 @@
     "shadowElevated": "0 24px 48px -28px rgba(12, 20, 46, 0.8)"
   },
   "streamer": {
-    "name": "GarstigesEinhorn",
-    "status": "Live aus ",
+    "name": "livieso",
+    "status": "Live aus dem Studio",
     "tagline": "Creative Dev Streams",
-    "details": []
+    "details": [
+      {
+        "label": "Sprache",
+        "value": "Deutsch & Englisch"
+      },
+      {
+        "label": "Aktuelles Projekt",
+        "value": "Overlay Refresh"
+      }
+    ]
   },
   "todos": [
+    {
+      "title": "Dashboard API verfeinern",
+      "status": "In Arbeit"
+    },
     {
       "title": "Chat Alerts testen",
       "status": "Ausstehend"

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useOverlayData } from "../context/ApiOverlayContext";
 import { StreamerDetail } from "../types";
 import ThemeApplier from "./shared/ThemeApplier";
+import FacecamPanel from "./overlay/FacecamPanel";
+import StreamerInfoPanel from "./overlay/StreamerInfoPanel";
+import TodoPanel from "./overlay/TodoPanel";
 import "./Dashboard.css";
 
 const Dashboard: React.FC = () => {
@@ -113,7 +116,8 @@ const Dashboard: React.FC = () => {
         </div>
 
         <div className="dashboard__content">
-          <section className="dashboard__section">
+          <div className="dashboard__main">
+            <section className="dashboard__section">
             <h2>Color Theme Settings</h2>
             <div
               className="theme-preview"
@@ -585,6 +589,19 @@ const Dashboard: React.FC = () => {
               </button>
             </div>
           </section>
+          </div>
+
+          <div className="dashboard__preview">
+            <div className="preview__header">
+              <h2>Live Preview</h2>
+              <p>See how your overlay panels look in real-time</p>
+            </div>
+            <div className="preview__panels">
+              <FacecamPanel />
+              <StreamerInfoPanel />
+              <TodoPanel />
+            </div>
+          </div>
         </div>
       </div>
     </>
