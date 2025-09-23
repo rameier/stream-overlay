@@ -1,117 +1,79 @@
-# Stream Overlay
+# Stream Overlay (1920×1080)
 
-Ein dunkles Streaming-Overlay im Look moderner Betriebssystem-Fenster. Es eignet sich als Browser-Quelle in OBS und legt den Fokus auf eine Facecam oben links, detaillierte Streamer-Infos darunter und eine Aufgabenliste unten rechts.
+Ein auf 1920×1080 px festgelegtes Overlay für OBS-Browserquellen. Links bleiben 80 % der Fläche frei, sodass du dort deine IDE
+oder Gameplay-Szene platzieren kannst. Rechts stapeln sich drei Fenster im Stil eines Desktop-Betriebssystems: Facecam, Streame
+r-Infos und To-Dos.
 
-## Projektstruktur
+## Dateien
 
-- **`index.html`** – Markup des Overlays mit allen Fenster-Panels.
-- **`styles.css`** – Styles für das Fenster-Layout in Blau/Grau, inklusive Responsive-Breakpoints.
-- **`overlay.js`** – Rendert die Daten, erlaubt Live-Updates und optionales Dashboard-Polling.
+- **`index.html`** – Markup mit Workspace-Spalte und drei Panels auf der rechten Seite.
+- **`styles.css`** – Blau-graue UI im Fensterglas-Look, inklusive fester 1920×1080-Ausgabe.
+- **`overlay.js`** – Minimaler Renderer für Streamer-Daten und To-Do-Liste, inklusive Live-Updates via `window.updateStreamOverla
+y`.
 
-## Vorschau lokal testen
+## Layout im Überblick
 
-1. Repository klonen oder herunterladen.
-2. Innerhalb des Projektordners einen kleinen Webserver starten, z. B. mit Python:
+- **Workspace (links, 80 %)**: Transparente Fläche für deine IDE oder Spielszenen. Ein dezenter Rahmen markiert die Kante.
+- **Facecam (rechts oben)**: Fenster mit Fensterkontrollen und Rahmen, in das du in OBS deine Kamera-Quelle legen kannst.
+- **Streamer Infos (rechts mitte)**: Zeigt Name, Status, Tagline und beliebige Faktenpaare (`label` + `value`).
+- **To-Dos (rechts unten)**: Liste mit Aufgabenstatus, ideal für aktuelle Stream-Tasks.
 
-   ```bash
-   python -m http.server 4000
-   ```
+## Lokal testen
 
-3. `http://localhost:4000/index.html` im Browser öffnen. Dort siehst du exakt dasselbe Overlay, das später in OBS eingebunden wird.
+```bash
+python -m http.server 4000
+```
 
-## Overlay in OBS verwenden
+Anschließend `http://localhost:4000/index.html` öffnen.
 
-1. In OBS eine Quelle vom Typ **Browser** hinzufügen.
-2. Als URL entweder den lokalen Webserver (`http://localhost:4000/index.html`) oder den absoluten Dateipfad (`file:///…/index.html`) wählen.
-3. Die Größe auf deine Zielauflösung einstellen – empfohlen sind 1920×1080.
-4. Die Facecam platzierst du in OBS über eine separate Quelle exakt über das Fenster „Facecam“.
+## In OBS verwenden
 
-## Layout-Highlights
+1. Neue Quelle vom Typ **Browser** anlegen.
+2. URL auf die gehostete Datei oder den lokalen Server setzen.
+3. **Breite 1920** und **Höhe 1080** eintragen, damit die Aufteilung exakt passt.
+4. Eine separate Facecam-Quelle genau über das Panel „Facecam“ legen.
 
-- **Facecam-Fenster**: Oben links, ungefähr ein Fünftel der Gesamtbreite, mit 16:9-Rahmen.
-- **Streamer-Infofenster**: Darunter mit Avatar, Status, frei konfigurierbaren Fakten und Link-Badges.
-- **Stream-Übersicht**: Zeigt Titel, Kategorie und Laufzeit deines aktuellen Programms.
-- **Aktivitätenfenster**: Kombiniert Abos und Unterstützungen in einem Dashboard.
-- **Ziele & Nächster Stream**: Eigene Fenster mit Fortschrittsbalken und Social-Links.
-- **Aufgabenboard**: Unten rechts für aktuelle Todos aus deinem Dashboard.
+## Daten anpassen
 
-## Daten pflegen
-
-Alle Inhalte stammen aus dem Objekt `defaultData` in `overlay.js`. Du kannst sie auf drei Arten anpassen:
-
-### 1. Direkt im Code ändern
-
-Passe `defaultData` an und lade das Overlay in OBS neu. Ideal für feste Overlays ohne externe Steuerung.
-
-### 2. Daten vor dem Skript injizieren
-
-Lege eine Datei `config.js` an und binde sie **vor** `overlay.js` ein. Dort kannst du `window.streamOverlayConfig` oder `window.streamOverlayData` setzen.
+Alle Inhalte kommen aus `defaultData` in `overlay.js`. Du kannst sie direkt anpassen oder zur Laufzeit mit Konfigurationsdaten ü
+berschreiben:
 
 ```html
 <script>
   window.streamOverlayConfig = {
     data: {
       streamer: {
-        name: "DeinName",
-        status: "live aus dem Makerspace",
-        tagline: "Build & Chill",
-        info: [
+        name: "Dein Name",
+        status: "Live aus dem Makerspace",
+        tagline: "Frontend & Chill",
+        details: [
           { label: "Sprache", value: "Deutsch" },
-          { label: "Zeitplan", value: "Di & Do • 20:00" }
+          { label: "Projekt", value: "Twitch Bot" }
         ]
       },
-      nowPlaying: {
-        title: "Chatbot für Twitch",
-        category: "Software & Technik",
-        startedAt: "Seit 25 Min live"
-      },
-      tasks: [
-        { title: "Dashboard deployen", status: "In Arbeit", due: "Heute" }
+      todos: [
+        { title: "API Endpoint prüfen", status: "In Arbeit" },
+        { title: "UI polishen", status: "Review", due: "Heute" }
       ]
     }
   };
 </script>
-<script type="module" src="overlay.js"></script>
+<script src="overlay.js" defer></script>
 ```
 
-`window.streamOverlayData` funktioniert weiterhin – `streamOverlayConfig.data` ist jedoch die bevorzugte Variante, weil dort auch das Dashboard-Polling konfiguriert wird.
+Zur Laufzeit kannst du weitere Updates senden:
 
-### 3. Automatisch über ein Dashboard aktualisieren
-
-Hinterlege eine URL, die JSON liefert. Das Skript pollt sie in einem Intervall und merged die Daten live.
-
-```html
-<script>
-  window.streamOverlayConfig = {
-    dashboardUrl: "https://example.com/overlay.json",
-    pollIntervalMs: 7000,
-    data: {
-      streamer: { name: "DeinName" }
-    }
-  };
-</script>
-<script type="module" src="overlay.js"></script>
+```js
+window.updateStreamOverlay({ todos: [{ title: "Release vorbereiten", status: "Done" }] });
 ```
 
-Das erwartete JSON kann dieselbe Struktur wie `defaultData` nutzen. Nicht gesetzte Felder behalten ihre vorherigen Werte. Über `window.updateStreamOverlay(patch)` kannst du außerdem manuell Patches senden (z. B. via WebSocket oder OBS-Browser-Scripting).
-
-## Datenstruktur im Überblick
+## Datenstruktur
 
 - `streamer`
-  - `name`, `status`, `tagline`, `tag`, `avatarUrl`
-  - `info`: Array aus `{ label, value }`
-  - `links`: Array aus `{ label, url }`
-- `nowPlaying`
-  - `label`, `title`, `category`, `startedAt`
-- `latestSubscriptions`: Array aus `{ name, time }`
-- `supporters`: Array aus `{ name, message, time }`
-- `goals`: Array aus `{ label, current, target }`
-- `callout`
-  - `title`, `subtitle`, `socials` (`{ label, url }`)
-- `tasks`: Array aus `{ title, status?, assignee?, due? }`
+  - `name`, `status`, `tagline`
+  - `details`: Array aus `{ label, value }`
+- `todos`: Array aus `{ title, status?, assignee?, due? }`
 - `theme`
-  - `accentOne`, `accentTwo` (steuern Verläufe und Akzentfarben)
+  - `accentPrimary`, `accentSecondary` zur Anpassung der Akzentfarben
 
-Leere Arrays werden automatisch mit einem Hinweis versehen, sodass deine Panels nie komplett leer wirken.
-
-Viel Spaß beim Streamen! 🎬
+Nicht gesetzte Felder behalten ihren letzten Wert. Leere Arrays erhalten automatisch eine dezente Platzhaltermeldung.
