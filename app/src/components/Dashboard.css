@@ -404,7 +404,7 @@
 .preview__panels {
   display: flex;
   flex-direction: column;
-  gap: 24px; /* Match overlay gap */
+  gap: 12px; /* Reduced from 24px for tighter spacing */
   padding: 32px 32px 32px 24px; /* Match overlay padding */
   font-size: 16px; /* Match overlay font size */
   width: 384px; /* Match overlay panels width */
