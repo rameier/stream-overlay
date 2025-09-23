@@ -34,6 +34,21 @@ const ThemeApplier: React.FC<ThemeApplierProps> = ({ isOverlay = false }) => {
       "important"
     );
     root.style.setProperty(
+      "--panel-header-background",
+      data.theme.panelHeaderBackground,
+      "important"
+    );
+    root.style.setProperty(
+      "--panel-header-border",
+      data.theme.panelHeaderBorder,
+      "important"
+    );
+    root.style.setProperty(
+      "--panel-title-color",
+      data.theme.panelTitleColor,
+      "important"
+    );
+    root.style.setProperty(
       "--text-primary",
       data.theme.textPrimary,
       "important"

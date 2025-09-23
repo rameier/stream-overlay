@@ -6,6 +6,9 @@ export interface Theme {
   // Panel colors
   panelSurface: string;
   panelBorder: string;
+  panelHeaderBackground: string;
+  panelHeaderBorder: string;
+  panelTitleColor: string;
 
   // Text colors
   textPrimary: string;

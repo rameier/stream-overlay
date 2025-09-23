@@ -4,6 +4,9 @@
     "accentSecondary": "#91a7ff",
     "panelSurface": "rgba(6, 12, 28, 0.92)",
     "panelBorder": "rgba(145, 167, 255, 0.2)",
+    "panelHeaderBackground": "#2341b8",
+    "panelHeaderBorder": "#27ff0a",
+    "panelTitleColor": "#ff5900",
     "textPrimary": "#f7f9ff",
     "textSecondary": "#c3c9dd",
     "textDim": "rgba(195, 201, 221, 0.65)",
@@ -15,8 +18,8 @@
     "shadowElevated": "0 24px 48px -28px rgba(12, 20, 46, 0.8)"
   },
   "streamer": {
-    "name": "livieso",
-    "status": "Live aus dem Studio",
+    "name": "liviesoTEst",
+    "status": "assasasas",
     "tagline": "Creative Dev Streams",
     "details": [
       {

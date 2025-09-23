@@ -6,6 +6,9 @@
   --overlay-border: rgba(92, 124, 250, 0.35); /* fallback */
   --panel-surface: rgba(6, 12, 28, 0.92); /* fallback */
   --panel-border: rgba(145, 167, 255, 0.2); /* fallback */
+  --panel-header-background: linear-gradient(90deg, rgba(92, 124, 250, 0.18), rgba(92, 124, 250, 0.08)); /* fallback */
+  --panel-header-border: rgba(145, 167, 255, 0.14); /* fallback */
+  --panel-title-color: #c3c9dd; /* fallback */
   --panel-glow: rgba(92, 124, 250, 0.35); /* fallback */
   --text-primary: #f7f9ff; /* fallback */
   --text-secondary: #c3c9dd; /* fallback */
@@ -87,12 +90,8 @@
   align-items: center;
   gap: 12px;
   padding: 18px 24px;
-  border-bottom: 1px solid rgba(145, 167, 255, 0.14);
-  background: linear-gradient(
-    90deg,
-    rgba(92, 124, 250, 0.18),
-    rgba(92, 124, 250, 0.08)
-  );
+  border-bottom: 1px solid var(--panel-header-border);
+  background: var(--panel-header-background);
 }
 
 .panel__controls {
@@ -119,7 +118,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--text-secondary);
+  color: var(--panel-title-color);
 }
 
 .panel__body {
