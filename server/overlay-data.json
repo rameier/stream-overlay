@@ -1,0 +1,29 @@
+{
+  "theme": {
+    "accentPrimary": "#5c7cfa",
+    "accentSecondary": "#91a7ff",
+    "panelSurface": "rgba(6, 12, 28, 0.92)",
+    "panelBorder": "rgba(145, 167, 255, 0.2)",
+    "textPrimary": "#f7f9ff",
+    "textSecondary": "#c3c9dd",
+    "textDim": "rgba(195, 201, 221, 0.65)",
+    "overlayBorder": "rgba(92, 124, 250, 0.35)",
+    "panelGlow": "rgba(92, 124, 250, 0.35)",
+    "detailBackground": "rgba(12, 18, 34, 0.7)",
+    "todoBackground": "rgba(12, 18, 34, 0.78)",
+    "facecamBackground": "rgba(8, 12, 26, 0.72)",
+    "shadowElevated": "0 24px 48px -28px rgba(12, 20, 46, 0.8)"
+  },
+  "streamer": {
+    "name": "GarstigesEinhorn",
+    "status": "Live aus ",
+    "tagline": "Creative Dev Streams",
+    "details": []
+  },
+  "todos": [
+    {
+      "title": "Chat Alerts testen",
+      "status": "Ausstehend"
+    }
+  ]
+}
