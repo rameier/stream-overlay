@@ -15,8 +15,8 @@ body {
 
 body {
   min-height: 100%;
-  background: #0c141e; /* Changed from transparent to ensure visibility */
-  color: #f7f9ff;
+  background: #212c35; /* Changed to use primary background from palette */
+  color: #ffffff;
   font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   font-weight: 400;
@@ -48,7 +48,7 @@ body[data-page="overlay"]::before {
   inset: 0;
   background: radial-gradient(
     circle at 80% 20%,
-    rgba(92, 124, 250, 0.18),
+    rgba(242, 64, 64, 0.18),
     transparent 45%
   );
   pointer-events: none;

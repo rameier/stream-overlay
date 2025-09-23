@@ -21,22 +21,27 @@ const ColorInput: React.FC<ColorInputProps> = ({
 
   // For rgba values, extract a hex approximation for the color picker
   const getColorPickerValue = (colorValue: string) => {
-    if (colorValue?.includes("rgba") || colorValue?.includes("linear-gradient")) {
+    if (
+      colorValue?.includes("rgba") ||
+      colorValue?.includes("linear-gradient")
+    ) {
       // Extract approximate hex from common rgba patterns and gradients
       const colorMap: { [key: string]: string } = {
-        "rgba(195, 201, 221, 0.65)": "#c3c9dd",
-        "rgba(6, 12, 28, 0.92)": "#060c1c",
-        "rgba(145, 167, 255, 0.2)": "#91a7ff",
-        "rgba(145, 167, 255, 0.14)": "#91a7ff",
-        "rgba(12, 18, 34, 0.7)": "#0c1222",
-        "rgba(12, 18, 34, 0.78)": "#0c1222",
-        "rgba(8, 12, 26, 0.72)": "#080c1a",
-        "rgba(92, 124, 250, 0.35)": "#5c7cfa",
-        "linear-gradient(90deg, rgba(92, 124, 250, 0.18), rgba(92, 124, 250, 0.08))": "#5c7cfa",
+        "rgba(255, 255, 255, 0.65)": "#FFFFFF",
+        "rgba(33, 44, 53, 0.92)": "#212C35",
+        "rgba(242, 64, 64, 0.3)": "#F24040",
+        "rgba(124, 13, 13, 0.4)": "#7C0D0D",
+        "rgba(31, 33, 36, 0.8)": "#1F2124",
+        "rgba(31, 33, 36, 0.85)": "#1F2124",
+        "rgba(33, 44, 53, 0.72)": "#212C35",
+        "rgba(242, 64, 64, 0.35)": "#F24040",
+        "rgba(124, 13, 13, 0.35)": "#7C0D0D",
+        "linear-gradient(90deg, rgba(56, 66, 74, 0.18), rgba(56, 66, 74, 0.08))":
+          "#38424A",
       };
-      return colorMap[colorValue] || "#5c7cfa";
+      return colorMap[colorValue] || "#F24040";
     }
-    return colorValue || "#c3c9dd";
+    return colorValue || "#FFFFFF";
   };
 
   return (
